@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: @project.name@
+  datasource:
+    url: ${EXTRACAO_XML_APPLICACAO_DATASOURCE_URL}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      username: ${EXTRACAO_XML_APPLICACAO_DATASOURCE_USERNAME}
+      password: ${EXTRACAO_XML_APPLICACAO_DATASOURCE_PASSWORD}
+      jdbc-url: ${EXTRACAO_XML_APPLICACAO_DATASOURCE_URL}
+      driver-class-name: oracle.jdbc.OracleDriver
+
+
+
+  jpa:
+    database: oracle
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    show-sql: true
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+
+  jackson:
+    jackson:
+      serialization:
+        FAIL_ON_EMPTY_BEANS: false
+      deserialization:
+        ACCEPT_EMPTY_STRING_AS_NULL_OBJECT: true
+        ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT: true
+
+extracao:
+  xml:
+    diretorio: 'src/main/resources/xml/'
