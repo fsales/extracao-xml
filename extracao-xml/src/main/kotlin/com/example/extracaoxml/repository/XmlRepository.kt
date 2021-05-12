@@ -12,7 +12,7 @@ interface XmlRepository : JpaRepository<Xml, Long> {
     @Query(
         value = """ 
         /*+ PARALLEL(6) */  SELECT
-            x.xml.getclobval() Xml,
+            x.xml.getclobval() Xml, -- A coluna foi definida com o tipo xmltype no banco oracle
             x.tokens tokens 
         FROM
             xml x
